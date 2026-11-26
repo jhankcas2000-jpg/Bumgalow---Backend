@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: bumgalow
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /salud
+    envVars:
+      - key: MONGODB_URI
+        sync: false          # pégala en el panel de Render (la de MongoDB Atlas)
+      - key: JWT_SECRET
+        generateValue: true
